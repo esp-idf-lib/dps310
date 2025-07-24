@@ -1,0 +1,33 @@
+---
+version: 1.0.0
+description: altitude
+dependencies:
+  esp-idf-lib/dps310:
+    version: "*"
+    override_path: "../../../"
+  esp-idf-lib/i2cdev:
+    version: "*"
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: "*"
+---
+version: 1.0.0
+description: background
+dependencies:
+  esp-idf-lib/dps310:
+    version: "*"
+    override_path: "../../../"
+  esp-idf-lib/i2cdev:
+    version: "*"
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: "*"
+---
+version: 1.0.0
+description: default
+dependencies:
+  esp-idf-lib/dps310:
+    version: "*"
+    override_path: "../../../"
+  esp-idf-lib/i2cdev:
+    version: "*"
+  esp-idf-lib/esp_idf_lib_helpers:
+    version: "*"
