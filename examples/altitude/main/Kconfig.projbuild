@@ -9,5 +9,5 @@ menu "Example configuration"
         default 16
         help
             Change this to the altitude of the device.
-    rsource "../../../../devtools/Kconfig.i2c"
+    rsource "../../../Kconfig.i2c"
 endmenu
