@@ -11,7 +11,7 @@ Driver for DPS310 barometric pressure sensor.
 ## Installation
 
 ```sh
-idf.py add-dependency "esp-idf-lib/dps310^1.0.0
+idf.py add-dependency esp-idf-lib/dps310^1.0.0
 ```
 
 ## Support
