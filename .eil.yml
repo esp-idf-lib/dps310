@@ -1,7 +1,7 @@
 ---
 name: dps310
 description: Driver for DPS310 barometric pressure sensor
-version: 1.0.2
+version: 1.0.3
 groups:
   - pressure
   - temperature
