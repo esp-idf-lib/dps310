@@ -52,7 +52,8 @@ static const char *TAG = "dps310";
 
 /* see 4.9.3 Compensation Scale Factors */
 #define N_SCALE_FACTORS (8)
-static const int32_t scale_factors[N_SCALE_FACTORS] = {
+static const int32_t scale_factors[N_SCALE_FACTORS] =
+{
     524288,
     1572864,
     3670016,
@@ -68,7 +69,8 @@ esp_err_t dps310_quirk(dps310_t *dev)
     esp_err_t err = ESP_FAIL;
     const int magic_command_len = 5;
     float ignore = 0;
-    const uint8_t magic_commands[5][2] = {
+    const uint8_t magic_commands[5][2] =
+    {
 
         /* reg address, value */
         { 0xA5, 0x0E },
@@ -131,7 +133,8 @@ esp_err_t dps310_quirk(dps310_t *dev)
 
     ESP_LOGD(TAG, "dps310_quirk(): setting mode to DPS310_MODE_COMMAND_TEMPERATURE");
     err = dps310_set_mode(dev, DPS310_MODE_COMMAND_TEMPERATURE);
-    if (err != ESP_OK) {
+    if (err != ESP_OK)
+    {
         ESP_LOGE(TAG, "dps310_set_mode(): %s", esp_err_to_name(err));
         goto fail;
     }
@@ -146,7 +149,8 @@ esp_err_t dps310_quirk(dps310_t *dev)
 
     ESP_LOGD(TAG, "dps310_quirk(): restore the original mode");
     err = dps310_set_mode(dev, original_mode);
-    if (err != ESP_OK) {
+    if (err != ESP_OK)
+    {
         ESP_LOGE(TAG, "dps310_set_mode(): %s", esp_err_to_name(err));
         goto fail;
     }

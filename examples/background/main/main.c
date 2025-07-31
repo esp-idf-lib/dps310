@@ -114,7 +114,8 @@ void dps310_task(void *pvParameters)
                 goto fail;
             }
         }
-    } while (!sensor_ready || !coef_ready);
+    }
+    while (!sensor_ready || !coef_ready);
 
     /* read COEF once, which is used to compensate the raw value. The COEF
      * values are kept in the device descriptor.
@@ -163,7 +164,8 @@ void dps310_task(void *pvParameters)
     }
 
     ESP_LOGI(TAG, "Starting the loop");
-    while (1) {
+    while (1)
+    {
 
         vTaskDelay(pdMS_TO_TICKS(1));
 
@@ -236,7 +238,8 @@ fail:
 
 init_fail:
     ESP_LOGE(TAG, "Halting due to error");
-    while (1) {
+    while (1)
+    {
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

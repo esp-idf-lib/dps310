@@ -70,7 +70,8 @@ extern "C" {
 /**
  * Mode of DPS310 module operation. See 4.1 Operating Modes.
  */
-typedef enum {
+typedef enum
+{
     DPS310_MODE_STANDBY = 0b000,  //!< Standby mode
     DPS310_MODE_COMMAND_PRESSURE = 0b001, //!<  Command mode, pressure measurement
     DPS310_MODE_COMMAND_TEMPERATURE = 0b010, //!<  Command mode, temperature measurement
@@ -82,7 +83,8 @@ typedef enum {
 /**
  * Pressure measurement rate.
  */
-typedef enum {
+typedef enum
+{
     DPS310_PM_RATE_1   = 0b000, //!<   1 measurements / sec
     DPS310_PM_RATE_2   = 0b001, //!<   2 measurements / sec
     DPS310_PM_RATE_4   = 0b010, //!<   4 measurements / sec
@@ -96,7 +98,8 @@ typedef enum {
 /**
  * Pressure resolution, or oversampling rate.
  */
-typedef enum {
+typedef enum
+{
     DPS310_PM_PRC_1   = 0b000, //!<   Single (Low Precision)
     DPS310_PM_PRC_2   = 0b001, //!<   2 times (Low Power).
     DPS310_PM_PRC_4   = 0b010, //!<   4 times
@@ -112,7 +115,8 @@ typedef enum {
  * temperature coefficients.
  */
 
-typedef enum {
+typedef enum
+{
     DPS310_TMP_SRC_INTERNAL = 0,    //!< Internal sensor (in ASIC)
     DPS310_TMP_SRC_EXTERNAL = 1,    //!< External sensor (in pressure sensor MEMS element)
 } dps310_tmp_src_ext_t;
@@ -120,7 +124,8 @@ typedef enum {
 /**
  * Temperature measurement rate.
  */
-typedef enum {
+typedef enum
+{
     DPS310_TMP_RATE_1   = 0b000, //!<   1 measurements / sec
     DPS310_TMP_RATE_2   = 0b001, //!<   2 measurements / sec
     DPS310_TMP_RATE_4   = 0b010, //!<   4 measurements / sec
@@ -134,7 +139,8 @@ typedef enum {
 /**
  * Pressure resolution, or oversampling rate.
  */
-typedef enum {
+typedef enum
+{
     DPS310_TMP_PRC_1   = 0b000, //!<   Single (Low Precision)
     DPS310_TMP_PRC_2   = 0b001, //!<   2 times (Low Power).
     DPS310_TMP_PRC_4   = 0b010, //!<   4 times
@@ -148,7 +154,8 @@ typedef enum {
 /**
  * Interupt (on SDO pin) active level.
  */
-typedef enum {
+typedef enum
+{
     DPS310_INT_HL_ACTIVE_LOW = 0,  //!< Active low
     DPS310_INT_HL_ACTIVE_HIGH = 1, //!< Active high
 } dps310_int_hl_active_level_t;
@@ -156,7 +163,8 @@ typedef enum {
 /**
  * Mode of interupt when the FIFO is full.
  */
-typedef enum {
+typedef enum
+{
     DPS310_INT_FIFO_DISABLE = 0, //!< Disable interrupt when the FIFO is full
     DPS310_INT_FIFO_ENABLE  = 1, //!< Enable interrupt when the FIFO is full
 } dps310_int_fifo_mode_t;
@@ -164,7 +172,8 @@ typedef enum {
 /**
  * Mode of interupt when a temperature measurement is ready
  */
-typedef enum {
+typedef enum
+{
     DPS310_INT_TMP_DISABLE  = 0, //!< Disable interrupt when a temperature measurement is ready
     DPS310_INT_TMP_ENABLE   = 1, //!< Enable interrupt when a temperature measurement is ready
 } dps310_int_tmp_mode_t;
@@ -172,7 +181,8 @@ typedef enum {
 /**
  * Mode of interupt when a pressure measurement is ready
  */
-typedef enum {
+typedef enum
+{
     DPS310_INT_PRS_DISABLE  = 0, //!< Disable interrupt when a pressure measurement is ready
     DPS310_INT_PRS_ENABLE   = 1, //!< Enable interrupt when a pressure measurement is ready
 } dps310_int_prs_mode_t;
@@ -180,27 +190,30 @@ typedef enum {
 /**
  * Mode of temperature result bit-shift.
  */
-typedef enum {
+typedef enum
+{
     DPS310_T_SHIFT_DISABLE  = 0, //!< No shift.
     DPS310_T_SHIFT_ENABLE   = 1, //!< Shift result right in data register.
-                                 //   Must be set to '1' when the oversampling
-                                 //   rate is >8 times.
+    //   Must be set to '1' when the oversampling
+    //   rate is >8 times.
 } dps310_t_shift_mode_t;
 
 /**
  * Mode of pressure result bit-shift.
  */
-typedef enum {
+typedef enum
+{
     DPS310_P_SHIFT_DISABLE  = 0, //!< No shift.
     DPS310_P_SHIFT_ENABLE   = 1, //!< Shift result right in data register.
-                                 //   Must be set to '1' when the oversampling
-                                 //   rate is >8 times.
+    //   Must be set to '1' when the oversampling
+    //   rate is >8 times.
 } dps310_p_shift_mode_t;
 
 /**
  * Mode of FIFO.
  */
-typedef enum {
+typedef enum
+{
     DPS310_FIFO_DISABLE = 0, //!< Disable FIFO.
     DPS310_FIFO_ENABLE  = 1, //!< Enable FIFO.
 } dps310_fifo_en_mode_t;
@@ -208,7 +221,8 @@ typedef enum {
 /**
  * SPI mode.
  */
-typedef enum {
+typedef enum
+{
     DPS310_SPI_MODE_4WIRE = 0, //!< SPI 4-wires
     DPS310_SPI_MODE_3WIRE = 1, //!< SPI 3-wires
 } dps310_spi_mode_t;
@@ -219,13 +233,15 @@ typedef enum {
  * When the type is DPS310_MEASUREMENT_EMPTY, the result is always zero.
  * Otherwise, the result is the compensated value of each type.
  */
-typedef enum {
+typedef enum
+{
     DPS310_MEASUREMENT_TEMPERATURE = 0, //!< Temperature
     DPS310_MEASUREMENT_PRESSURE,        //!< Pressure
     DPS310_MEASUREMENT_EMPTY,           //!< Empty, no measurement available
 } dps310_fifo_measurement_type_t;
 
-typedef struct {
+typedef struct
+{
     dps310_fifo_measurement_type_t type;
     float result;
 } dps310_fifo_measurement_t;
@@ -233,7 +249,8 @@ typedef struct {
 /**
  * Configuration parameters for DPS310.
  */
-typedef struct {
+typedef struct
+{
     dps310_pm_rate_t pm_rate;
     dps310_pm_oversampling_t pm_oversampling;
     dps310_tmp_rate_t tmp_rate;
@@ -273,7 +290,8 @@ typedef struct {
 /**
  * Calibration Coefficients (COEF).
  */
-typedef struct {
+typedef struct
+{
     int32_t c0;
     int32_t c1;
     int32_t c00;
@@ -288,7 +306,8 @@ typedef struct {
 /**
  * Device descriptor.
  */
-typedef struct {
+typedef struct
+{
     i2c_dev_t i2c_dev;          //!< I2C device descriptor
     uint8_t prod_id;            //!< Product ID
     uint8_t prod_rev;           //!< Product revision
@@ -352,13 +371,13 @@ typedef struct {
 
 /* See 3.6 Timing Characteristics */
 #define DPS310_I2C_FREQ_MAX_HZ  (3400000)  // Max 3.4 MHz
-                                           //
+//
 /* I2C master driver does not support higher than 1MHz
  * https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2c.html#_CPPv4N12i2c_config_t9clk_speedE
  */
 #define DPS310_I2C_FREQ_MAX_ESP_IDF_HZ  (1000000)
 #define DPS310_SPI_FREQ_MAX_HZ  (10000000) // Max 10 MHz
-                                           //
+//
 /* See 4.3 Start-up sequence
  *
  * XXX the datasheet is ambiguous in the start-up sequence. Trim_complete is
